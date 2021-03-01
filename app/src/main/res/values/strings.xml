@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DemoCoding</string>
+    <string name="MaRessourceTextView">Hello La Coding Il fait beau la vie est belle</string>
+    <string name="unNouveauText">Ma ressource</string>
+    <string name="unautreNouveauText">Ma deuxieme ressource</string>
+    <string name="un_texte_au_hasard">Un texte au hasard</string>
+    <string name="encore_un_autre_text">Encore un autre text</string>
+</resources>
