@@ -5,4 +5,10 @@
     <string name="unautreNouveauText">Ma deuxieme ressource</string>
     <string name="un_texte_au_hasard">Un texte au hasard</string>
     <string name="encore_un_autre_text">Encore un autre text</string>
+    <string name="score">Score : </string>
+    <string name="guess">Enter your guess : </string>
+    <string name="your_guess">Your Guess</string>
+    <string name="validate">Validate</string>
+    <string name="hintText">Your number is :</string>
+    <string name="hintInfo">Too SMALL</string>
 </resources>
