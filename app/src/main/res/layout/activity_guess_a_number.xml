@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:visibility="visible"
     tools:context=".GuessANumber">
 
     <LinearLayout
@@ -15,6 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/score"
             android:textSize="32sp" />
 
@@ -22,99 +24,180 @@
             android:id="@+id/scoreView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:paddingHorizontal="20dp"
             android:text="0"
             android:textSize="32sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            tools:srcCompat="@drawable/avatar" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/guessLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scoreLayout">
+        android:layout_height="match_parent"
+        android:layout_below="@id/scoreLayout"
+        android:visibility="visible">
 
-        <TextView
+
+        <LinearLayout
+            android:id="@+id/guessLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/guess"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:hint="@string/your_guess"
+                android:inputType="number"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/validateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:text="@string/guess"
-            android:textSize="18sp" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:hint="@string/your_guess"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textSize="22sp" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/validateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/guessLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginVertical="20dp"
-        android:text="@string/validate"
-        android:textSize="24dp" />
-
-    <LinearLayout
-        android:id="@+id/progressBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/validateButton">
-
-        <ProgressBar
-            android:id="@+id/nbTriesProgressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:progress="3"
-            android:max="10"
-            android:layout_gravity="fill_horizontal|center_vertical"
-            android:layout_weight="6"/>
-
-        <TextView
-            android:id="@+id/nbTriesTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3"
-            android:textAlignment="textEnd"
+            android:layout_below="@id/guessLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="20dp"
+            android:text="@string/validate"
             android:textSize="24dp" />
-    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progressBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/validateButton">
+
+            <ProgressBar
+                android:id="@+id/nbTriesProgressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal|center_vertical"
+                android:layout_weight="6"
+                android:max="10"
+                android:progress="3" />
+
+            <TextView
+                android:id="@+id/nbTriesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3"
+                android:textAlignment="textEnd"
+                android:textSize="24dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBarLayout"
+            android:layout_marginVertical="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/hintText"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/hintInfo"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/checkbox"
+            android:layout_below="@id/hintLayout">
+
+
+        </ListView>
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:text="@string/change_difficulty" />
+    </RelativeLayout>
+
     <LinearLayout
-        android:id="@+id/hintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progressBarLayout"
-        android:layout_marginVertical="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:text="@string/hintText"
-            android:textSize="24sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:text="@string/hintInfo"
-            android:textSize="24sp" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/scoreLayout"
+        android:visibility="invisible">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/easyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/mediumRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medium"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/hardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/validate_difficulty"
+                android:layout_weight="3"/>
+        </LinearLayout>
     </LinearLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hintLayout"
-        android:layout_alignParentBottom="true"/>
-
 </RelativeLayout>

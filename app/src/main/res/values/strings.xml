@@ -11,4 +11,9 @@
     <string name="validate">Validate</string>
     <string name="hintText">Your number is :</string>
     <string name="hintInfo">Too SMALL</string>
+    <string name="change_difficulty">Change Difficulty</string>
+    <string name="easy">Easy</string>
+    <string name="medium">medium</string>
+    <string name="hard">Hard</string>
+    <string name="validate_difficulty">Validate Difficulty</string>
 </resources>
