@@ -14,6 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,10 +47,11 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/gameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/scoreLayout"
-        android:visibility="visible">
+        android:visibility="gone">
 
 
         <LinearLayout
@@ -66,11 +68,13 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/userGuessEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:hint="@string/your_guess"
                 android:inputType="number"
                 android:textSize="22sp" />
@@ -84,6 +88,7 @@
             android:layout_below="@id/guessLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginVertical="20dp"
+            android:onClick="checkGuessUser"
             android:text="@string/validate"
             android:textSize="24dp" />
 
@@ -101,14 +106,14 @@
                 android:layout_gravity="fill_horizontal|center_vertical"
                 android:layout_weight="6"
                 android:max="10"
-                android:progress="3" />
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/nbTriesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3"
+                android:text=""
                 android:textAlignment="textEnd"
                 android:textSize="24dp" />
         </LinearLayout>
@@ -129,6 +134,7 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:id="@+id/hintInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -139,6 +145,7 @@
         </LinearLayout>
 
         <ListView
+            android:id="@+id/historicListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/checkbox"
@@ -146,6 +153,13 @@
 
 
         </ListView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StartAgain"
+            android:layout_above="@id/checkbox"
+            android:visibility="invisible" />
 
         <CheckBox
             android:id="@+id/checkbox"
@@ -157,47 +171,57 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/difficultyLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/scoreLayout"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioGroup
+                android:id="@+id/difficultyRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/easyRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
                     android:text="@string/easy"
-                    android:layout_weight="1"/>
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/mediumRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/medium"
-                    android:layout_weight="1"/>
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/hardRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/hard"
-                    android:layout_weight="1"/>
+                    android:textSize="12sp" />
             </RadioGroup>
+
             <Button
+                android:id="@+id/validateDifficulty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:text="@string/validate_difficulty"
-                android:layout_weight="3"/>
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
